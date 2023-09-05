@@ -40,7 +40,7 @@
 	Me piden determinar si dados p y q variables preposicionales, las expresiones son \emph{formulas bien formadas}.\\
 	$\bigstar$ Rdo.: una formula está bien formada si cumple: 
 	
-	%\includegraphics[width=\textwidth]{FBF}
+	\includegraphics[width=\textwidth]{FBF}
 	
 	\subsubsection{Pregunta A}
 	\begin{enumerate}[label=(\alph*)]
@@ -441,9 +441,174 @@
 		False $\rightarrow$ True $\equiv$\\
 		True
 	\subsection{Ejercicio 10}
+	
 		\subsubsection{Inciso A}
 		((p$\wedge$p)$\wedge$p)$\rightarrow$p $\equiv$ (Idempotencia de la conjunción,Asociatividad de la conjunción)\\
 		p$\rightarrow$p $\equiv$ (Implicación material)\\
 		($\neg$ p $\vee$ p) $\equiv$ (Inversa disyunción)\\
-		True
+		True\\
+		
+		Por lo tanto ((p$\wedge$p)$\wedge$p)$\rightarrow$p $\equiv$ True
+		
+		\subsubsection{Inciso B}
+		(($\neg$p$\vee$$\neg$q)$\vee$(p$\wedge$q)$\rightarrow$(p$\wedge$q)) $\equiv$ (Asociatividad de la disyunción, Distributividad de la disyunción)\\
+		(($\neg$p$\vee$$((\neg$q$\vee$p)$\wedge$($\neg$q$\wedge$q)))$\rightarrow$(p$\wedge$q)) $\equiv$ (Inversa de la disyunción)\\
+		(($\neg$p$\vee$$((\neg$q$\vee$p)$\wedge$True))$\rightarrow$(p$\wedge$q)) $\equiv$ (Neutro de la conjunción)\\
+		(($\neg$p$\vee$$(\neg$q$\vee$p))$\rightarrow$(p$\wedge$q)) $\equiv$ (Asociatividad de la disyunción)\\
+		(($\neg$p$\vee$p)$\vee$$\neg$q)$\rightarrow$(p$\wedge$q)) $\equiv$ (Inversa de la disyunción)\\
+		(True$\vee$$\neg$q)$\rightarrow$(p$\wedge$q)) $\equiv$ (Dominación de la disyunción)\\
+		(True$\rightarrow$(p$\wedge$q)) $\equiv$ (Implicación material)\\
+		($\neg$True$\vee$(p$\wedge$q)) $\equiv$ (False$\vee$(p$\wedge$q)) $\equiv$ (Neutro de disyunción)\\
+		(p $\wedge$ q)\\
+		
+		Por lo tanto (($\neg$p$\vee$$\neg$q)$\vee$(p$\wedge$q)$\rightarrow$(p$\wedge$q)) $\equiv$ (p $\wedge$ q)
+		
+		\subsubsection{Inciso C}
+		($\neg$p$\rightarrow$(q$\wedge$r)) $\equiv$ (Implicación material, Doble negación)\\
+		(p$\vee$(q$\wedge$r)) $\equiv$ (Distributividad de la disyunción)\\
+		((p$\vee$q)$\wedge$(p$\vee$r))\\
+		
+		Por lo tanto ($\neg$p$\rightarrow$(q$\wedge$r)) $\equiv$ ((p$\vee$q)$\wedge$(p$\vee$r))
+		
+		\subsubsection{Inciso D}
+		$\neg$($\neg$p)$\rightarrow$($\neg$($\neg$p$\wedge$$\neg$q)) $\equiv$ (Ley de De Morgan para la conjunción, Doble negación)\\
+		p$\rightarrow$(p $\vee$ q) $\equiv$ (Implicación material,Doble negación)\\
+		($\neg$ p$\vee$(p$\vee$q)) $\equiv$ (Asociatividad de la disyunción, Inversa de la disyunción)\\
+		(True $\wedge$ q) $\equiv$ (Dominación de la disyunción)\\
+		True\\
+		
+		Por lo tanto $\neg$($\neg$p)$\rightarrow$($\neg$($\neg$p$\wedge$$\neg$q)) $\not\equiv$ q
+		
+		\subsubsection{Inciso E}
+		((True $\wedge$ p)$\vee$($\neg$p$\vee$False)$\rightarrow$$\neg$($\neg$p$\vee$q)) $\equiv$ (Neutro de la conjunción, Neutro de la disyunción, Ley de De Morgan para la disyunción, Doble negación)\\
+		((p$\vee$$\neg$p)$\rightarrow$(p$\wedge$$\neg$q)) $\equiv$ (Inversa de la conjunción)\\
+		(False $\rightarrow$ (p $\wedge$$\neg$q)) $\equiv$ (Implicación Material)\\
+		True $\vee$ (p $\wedge$$\neg$q)) $\equiv$ (Dominación de la disyunción)\\
+		True\\
+		
+		Por lo tanto ((True $\wedge$ p)$\vee$($\neg$p$\vee$False)$\rightarrow$$\neg$($\neg$p$\vee$q)) $\not\equiv$ (p$\wedge$$\neg$q)
+		
+		\subsubsection{Inciso F}
+		(p$\vee$($\neg$p$\wedge$q)) $\equiv$ (Distributiva de la disyunción)\\
+		((p$\vee$$\neg$p)$\wedge$(p$\vee$q)) $\equiv$ (Inversa de la disyunción)\\
+		(True$\wedge$(p$\vee$q)) $\equiv$ (Neutro de la conjunción)\\
+		(p$\vee$q) $\equiv$ (Implicación Material)\\
+		($\neg$p$\rightarrow$q)\\
+		
+		Por lo tanto, (p$\vee$($\neg$p$\wedge$q)) $\equiv$ ($\neg$p$\rightarrow$q)
+		
+		\subsubsection{Inciso G}
+		$\neg$(p$\wedge$(q$\wedge$s)) $\equiv$ (Asociatividad de la conjunción)\\
+		$\neg$(p$\wedge$q$\wedge$s) $\equiv$ (Ley de De Morgan para la conjunción)\\
+		($\neg$p$\vee$$\neg$q$\vee$$\neg$s) $\equiv$ (Implicación Material)\\
+		s$\rightarrow$($\neg$p$\vee$$\neg$q)\\
+		
+		Por lo tanto $\neg$(p$\wedge$(q$\wedge$s)) $\equiv$ s$\rightarrow$($\neg$p$\vee$$\neg$q)
+		
+		\subsubsection{Inciso H}
+		(p$\rightarrow$(q$\wedge$$\neg$(q$\rightarrow$r))) $\equiv$ (Implicación Material)\\
+		($\neg$p$\vee$(q$\wedge$$\neg$($\neg$q$\vee$r))) $\equiv$ (Ley de De Morgan para la disyunción, Doble negación)\\
+		($\neg$p$\vee$(q$\wedge$(q$\wedge$$\neg$r))) $\equiv$ (Distributiva para la disyunción)\\
+		(($\neg$p$\vee$q)$\wedge$($\neg$p$\vee$(q$\wedge$$\neg$r)))\\
+		
+		Por lo tanto, (p$\rightarrow$(q$\wedge$$\neg$(q$\rightarrow$r))) $\equiv$ (($\neg$p$\vee$q)$\wedge$($\neg$p$\vee$(q$\wedge$$\neg$r)))
+		
+	\subsection{Ejercicio 11}
+		\subsubsection{Inciso A}
+		Arranquemos probando que la conjunción es expresable mediante la negación y la disyunción. Propongo ver que (p$\wedge$q) $\equiv$ $\neg$($\neg$p$\vee$$\neg$q)\\
+		\begin{tabular}{c|c|c|c|c|c|c}
+			p & q & (p$\wedge$q) & $\neg$p & $\neg$q & ($\neg$p$\vee$$\neg$q) & $\neg$($\neg$p$\vee$$\neg$q)\\
+			V & V & V & F & F & F & V\\
+			V & f & F & F & V & V & F\\
+			V & V & F & V & F & V & F\\
+			V & V & F & V & V & V & F\\
+		\end{tabular}
+		
+		\subsubsection{Inciso B}
+		Como ya sabemos, (p$\rightarrow$q) $\equiv$ ($\neg$p $\vee$ q)  (Probado en 5.E)
+		
+		\subsubsection{Inciso C}
+		Luego, como probamos que (p\Iff q) $\equiv$ ((p$\rightarrow$q)$\wedge$(q$\rightarrow$p)) en 8.U, y tanto ($\rightarrow$) como ($\wedge$) son expresables mediante negaciones y disyunciones, (\Iff)  también lo es
+	\subsection{Ejercicio 12}
+		\subsubsection{Inciso A}
+		\begin{itemize}
+			\item ($\emph{f}$ $\rightarrow$ $\neg$($\emph{e}$\Iff $\emph{m}$))
+			\item ($\neg$$\emph{f}$ $\rightarrow$ $\neg$$\emph{e}$)
+			\item (($\emph{e}$$\wedge$$\emph{f}$) $\rightarrow$ $\emph{m}$)
+		\end{itemize}
+		\subsubsection{Inciso B}
+		Sabemos que si no es fin de semana, Juan no estudia (por el segundo item del Inciso A). Pero a la vez por el primer item, vemos que si es fin de semana, existe la posibilidad de que Juan estudie, siempre y cuando él no este escuchando música, ahora, el tercer item nos dice que si estudia y es fin de semana, escuchará música, lo cual haría incumplir el 1er item.
+		Queda pendiente la verificación con lógica, pero creería que juntar las 3 proposiciones lleva a una contradicción.
+	
+	\subsection{Ejercicio 13}
+		Defino $j = \text{Conocen a Juan; } c = \text{Conocen a Camila; } g = \text{Conocen a Gonzalo}$ \\
+		
+		\begin{tabular}{c|c|c|c|c|c|c|c}
+			j & c & g & (j $\rightarrow$ c) & (c $\rightarrow$ g) & ((j $\rightarrow$ c)$\vee$(c $\rightarrow$ g)) & (j $\rightarrow$ g) & (((j $\rightarrow$ c)$\vee$(c $\rightarrow$ g))$\rightarrow$(j $\rightarrow$ g)) \\
+			F          & F          & F          & V              & V              & V                          & V              & V                                      \\
+			F          & F          & V          & V              & V              & V                          & V              & V                                      \\
+			F          & V          & F          & V              & F              & F                          & V              & V                                      \\
+			F          & V          & V          & V              & V              & V                          & V              & V                                      \\
+			V          & F          & F          & F              & V              & F                          & F              & V                                      \\
+			V          & F          & V          & F              & V              & F                          & V              & V                                      \\
+			V          & V          & F          & V              & F              & F                          & F              & V                                      \\
+			V          & V          & V          & V              & V              & V                          & V              & V                                     
+		\end{tabular}\\
+		Luego es cierto que si todos conocen a Juan entonces todos conocen a Gonzalo
+	
+	\subsection{Ejercicio 14}
+		Si p = pelea y o = ojo morado. Luego se que $p \rightarrow o$ pero si o es verdadero, puede pasar que p sea True o que sea False indistintamente. Por ejemplo si digo "Si llueve, hay nubes negras", y luego afirmo que hay nubes negras, eso no quiere decir que esté lloviendo
+		Esto es llamado falacia del consecuente
+		
+	\subsection{Ejercicio 15}
+		\begin{enumerate}[label=(\alph*)]
+			\item True
+			\item True
+			\item $\perp$
+			\item $\perp$
+			\item $\perp$
+			\item $\perp$ 
+		\end{enumerate}
+	\subsection{Ejercicio 16}
+		El operador $\implicaLuego$ se evalúa de forma secuencial, de izquierda a derecha, y es usado en lógica ternaria. Su tabla de verdad es:\\
+		\begin{tabular}{c|c|c|c}
+			p & q & p$\rightarrow$q & p$\implicaLuego$q\\
+			V & V & V & V\\
+			V & F & F & F\\
+			F & V & V & V\\
+			F & F & V & V\\
+			V & $\perp$ & - & $\perp$\\
+			F & $\perp$ & - & V\\
+			$\perp$ & V & - & $\perp$\\
+			$\perp$ & F & - & $\perp$\\
+			$\perp$ & $\perp$ & - & $\perp$\\
+		\end{tabular}
+	\subsection{Ejercicio 17}
+		El operador $\yLuego$ se evalúa de forma secuencial, de izquierda a derecha, y es usado en lógica ternaria. Su tabla de verdad es:\\
+		\begin{tabular}{c|c|c|c}
+			p & q & p$\wedge$q & p$\yLuego$q\\
+			V & V & V & V\\
+			V & F & F & F\\
+			F & V & F & F\\
+			F & F & F & F\\
+			V & $\perp$ & - & $\perp$\\
+			F & $\perp$ & - & F\\
+			$\perp$ & V & - & $\perp$\\
+			$\perp$ & F & - & $\perp$\\
+			$\perp$ & $\perp$ & - & $\perp$\\
+		\end{tabular}
+	\subsection{Ejercicio 18}
+		El operador $\oLuego$ se evalúa de forma secuencial, de izquierda a derecha, y es usado en lógica ternaria. Su tabla de verdad es:\\
+		\begin{tabular}{c|c|c|c}
+			p & q & p$\vee$q & p$\oLuego$q\\
+			V & V & V & V\\
+			V & F & V & V\\
+			F & V & V & V\\
+			F & F & F & F\\
+			V & $\perp$ & - & V\\
+			F & $\perp$ & - & $\perp$\\
+			$\perp$ & V & - & $\perp$\\
+			$\perp$ & F & - & $\perp$\\
+			$\perp$ & $\perp$ & - & $\perp$\\
+		\end{tabular}	
 \end{document}
