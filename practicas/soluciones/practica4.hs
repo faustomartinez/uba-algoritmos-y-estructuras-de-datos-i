@@ -113,7 +113,7 @@ f3 1 q = q^2
 f3 n q = q^(2*n) + f3 (n-1) q
 
 {-
-problema f3(n:Z,q:ℝ):ℝ{
+problema f4(n:Z,q:ℝ):ℝ{
     requiere{n>0}
     asegura {res=q^(2*n+1)-q^n / q^n-1} si q/=1
     asegura {res=n+1} q=1
