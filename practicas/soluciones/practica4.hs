@@ -1,3 +1,4 @@
+import GHC.Int (neInt32)
 -------------EJERCICIO 1---------------
 fibonacci::Int->Int
 fibonacci 0 = 0
@@ -214,8 +215,11 @@ sonCoprimos n m = mcd n m == 1
 -- TODO pensar como pensar esta función
 nEsimoPrimo::Integer->Integer
 nEsimoPrimo 1 = 2
-nEsimoPrimo n | esPrimo n = n
-              | otherwise = nEsimoPrimo (n+1)
+nEsimoPrimo n = siguientePrimo (nEsimoPrimo (n-1))
+
+siguientePrimo::Integer->Integer
+siguientePrimo n | esPrimo (n+1) = (n+1)
+                 | otherwise = siguientePrimo (n+1)
 
 -------------EJERCICIO 17--------------
 esFibonacciAux::Integer->Integer->Integer->Bool
@@ -235,3 +239,51 @@ mayorDigitoPar n | n<10 && even n = n
                  | otherwise = mayorDigitoPar nRecortado
                   where ultimoDigito = mod n 10
                         nRecortado = div n 10
+
+-------------EJERCICIO 19--------------
+sumaPrimosHasta::Integer->Integer
+sumaPrimosHasta 1 = 2
+sumaPrimosHasta n = nEsimoPrimo n + sumaPrimosHasta (n-1)
+-- sumaPrimosHasta cuenta los primeros n primos
+
+esSumaInicialDePrimosDesde :: Integer-> Integer->Bool
+esSumaInicialDePrimosDesde m 1 = False
+esSumaInicialDePrimosDesde m n | sumaPrimosHasta m == n = True
+                               | sumaPrimosHasta m > n = False
+                               | sumaPrimosHasta m < n = esSumaInicialDePrimosDesde (m+1) n
+{-esSumaInicialDePrimosDesde va chequeando desde cierto m si el n que me dieron es igual
+a la suma de primos hasta m. Si esta suma de primos supera a n, devuelve false,
+Si esta suma de primos es igual a n, devuelve true (pues quiere decir que n es suma de primos)
+Si esta suma de primos es menor que n, buscamos la siguiente suma de primos
+-}
+
+esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos = esSumaInicialDePrimosDesde 1
+---Arrancamos la recursion desde 1, para cubrir todos los casos
+
+-------------EJERCICIO 20--------------
+sumaDivisoresHasta :: Integer -> Integer -> Integer
+sumaDivisoresHasta n 1 = 1
+sumaDivisoresHasta n k | mod n k == 0 = k + sumaDivisoresHasta n (k-1)
+                       | otherwise = sumaDivisoresHasta n (k-1)
+--- Si k divide a n, lo voy agregando, si no lo hace, continuo la recursion sin sumar
+
+sumaDivisores::Integer->Integer 
+sumaDivisores n = sumaDivisoresHasta n n
+----Sumo hasta el maximo divisor, que es el mismo numero
+
+valorMaxHasta::Integer->Integer
+valorMaxHasta 1 = 1
+valorMaxHasta n = max (sumaDivisores n) (valorMaxHasta (n-1))
+
+--Encadeno en max's las sumas de divisores desde n1 hasta n2
+{-
+Ej valorMax 8 11 = max 15 (valorMax 9 11) = max 15 (max 13 (valorMax 10 11))
+= max 15 (max 13 (max 18 (valor Max 11 11))) = max 15 (max 13 (max 18 12))=
+    max 15 (max 13 18) = max 15 18 = max 18 = 18 = sumaDivisores 10
+-}
+valorMax :: Integer -> Integer -> Integer
+valorMax n1 n2 | n1/=n2 = max (sumaDivisores n1) (valorMax (n1+1) n2)
+               | otherwise = sumaDivisores n1 
+
+-------------EJERCICIO 21--------------
