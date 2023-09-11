@@ -1,4 +1,5 @@
 import GHC.Int (neInt32)
+import Language.Haskell.TH (Lit(IntegerL))
 -------------EJERCICIO 1---------------
 fibonacci::Int->Int
 fibonacci 0 = 0
@@ -110,8 +111,7 @@ problema f3(n:Z,q:ℝ):ℝ{
 -}
 
 f3::Integer->Float->Float
-f3 1 q = q^2
-f3 n q = q^(2*n) + f3 (n-1) q
+f3 n  = f2 (2*n) 
 
 {-
 problema f4(n:Z,q:ℝ):ℝ{
@@ -122,7 +122,6 @@ problema f4(n:Z,q:ℝ):ℝ{
 -}
 
 f4::Integer->Float->Float
-f4 1 q = q^2+q
 f4 n q = f2 (2*n) q - f2 (n-1) q
 
 -------------EJERCICIO 11--------------
@@ -287,3 +286,7 @@ valorMax n1 n2 | n1/=n2 = max (sumaDivisores n1) (valorMax (n1+1) n2)
                | otherwise = sumaDivisores n1 
 
 -------------EJERCICIO 21--------------
+--Funcion para chequear si determinados p,q,r cumplen la condicion de p²+q²=r²
+esMenorPitagoriano :: Integer->Integer->Integer->Bool
+esMenorPitagoriano p q r = p^2+q^2 <= r^2
+
