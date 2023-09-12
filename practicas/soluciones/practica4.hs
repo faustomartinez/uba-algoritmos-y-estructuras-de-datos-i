@@ -210,15 +210,17 @@ mcd a b = mcd b (rem a b)
 sonCoprimos::Integer->Integer->Bool
 sonCoprimos n m = mcd n m == 1
 
--- !Consultar
--- TODO pensar como pensar esta función
 nEsimoPrimo::Integer->Integer
 nEsimoPrimo 1 = 2
 nEsimoPrimo n = siguientePrimo (nEsimoPrimo (n-1))
+-- Devuelve el primo nº n, 
+-- Ej: nEsimoPrimo 4 = 7, nEsimoPrimo5=11 , nEsimoPrimo 19=67
 
 siguientePrimo::Integer->Integer
-siguientePrimo n | esPrimo (n+1) = (n+1)
+siguientePrimo n | esPrimo (n+1) = n+1
                  | otherwise = siguientePrimo (n+1)
+-- Si el siguiente numero es primo, devuelve ese numero, si no, vuelve a chequear hasta tener uno primo
+-- Ej: siguientePrimo 3 = 5, siguientePrimo 5=7, siguientePrimo 6=7
 
 -------------EJERCICIO 17--------------
 esFibonacciAux::Integer->Integer->Integer->Bool
