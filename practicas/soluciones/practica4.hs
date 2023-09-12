@@ -288,5 +288,15 @@ valorMax n1 n2 | n1/=n2 = max (sumaDivisores n1) (valorMax (n1+1) n2)
 -------------EJERCICIO 21--------------
 --Funcion para chequear si determinados p,q,r cumplen la condicion de p²+q²=r²
 esMenorPitagoriano :: Integer->Integer->Integer->Bool
-esMenorPitagoriano p q r = p^2+q^2 <= r^2
+esMenorPitagoriano p q r = p^2 + q^2 <= r^2
 
+pitagorasNFijo :: Integer -> Integer -> Integer -> Integer
+pitagorasNFijo n m r | m<0 = 0
+                     | esMenorPitagoriano n m r = 1 + pitagorasNFijo n (m-1) r
+                     | otherwise = 0 + pitagorasNFijo n (m-1) r
+--Voy sumando uno solo si se cumple la condicion pedida, al llegar a 0 termino
+
+pitagoras :: Integer -> Integer -> Integer -> Integer
+pitagoras n m r | n==0 = pitagorasNFijo 0 m r
+                | otherwise = pitagorasNFijo n m r + pitagoras (n-1) m r
+-- Voy haciendo pitagoras con n fijo de cada n hasta llegar a n=0
