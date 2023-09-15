@@ -197,3 +197,25 @@ palabraMasLarga :: [Char] -> [Char]
 palabraMasLarga xs = palabraMasLargaSinLimpiar (limpiarCadena xs)
 
 --5
+aplanar :: [[Char]]->[Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs
+
+--6
+aplanarConEspacios :: [[Char]] -> [Char]
+aplanarConEspacios [] = []
+aplanarConEspacios (xs:[]) = xs ++ []
+aplanarConEspacios (xs:xss) = (xs++" ") ++ aplanarConEspacios xss
+
+--7
+nEspacios :: Integer -> [Char]
+nEspacios 0 = []
+nEspacios n = ' ': nEspacios (n-1)
+--nEspacios n = " "++ nEspacios (n-1) Vale tambien
+
+aplanarConNEspacios :: [[Char]] -> Integer -> [Char]
+aplanarConNEspacios [] n = []
+aplanarConNEspacios (xs:[]) n = xs ++ []
+aplanarConNEspacios (xs:xss) n = (xs ++ nEspacios n) ++ aplanarConNEspacios xss n
+
+---------EJERCICIO 5----------
