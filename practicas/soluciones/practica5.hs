@@ -79,7 +79,7 @@ capicua xs = xs == reverso xs
 
 ---------EJERCICIO 3----------
 --1
-sumatoria :: [Integer] -> Integer
+sumatoria :: (Num t) => [t] -> t
 sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs
 
@@ -219,3 +219,34 @@ aplanarConNEspacios (xs:[]) n = xs ++ []
 aplanarConNEspacios (xs:xss) n = (xs ++ nEspacios n) ++ aplanarConNEspacios xss n
 
 ---------EJERCICIO 5----------
+--1
+sumatoriaHasta :: (Num t) => [t] -> Int -> t
+sumatoriaHasta _ 0 = 0
+sumatoriaHasta (x:xs) n = x + sumatoriaHasta xs (n-1)
+
+sumaAcumuladaDesde :: (Num t)=>[t]->Int->[t]
+sumaAcumuladaDesde (x:xs) m 
+    | m <= length (x:xs) = sumatoriaHasta (x:xs) m : sumaAcumuladaDesde (x:xs) (m+1)
+    | otherwise = []
+
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada xs = sumaAcumuladaDesde xs 1
+
+--2
+menorDivisorAux::Integer->Integer->Integer
+menorDivisorAux a i  | mod a i == 0 =i
+                     | otherwise = menorDivisorAux a (i+1)
+
+menorDivisor::Integer->Integer
+menorDivisor n = menorDivisorAux n 2
+--La recursion de menorDivisorAux arranca en 2 y va subiendo hasta encontrar el primer múltiplo
+
+factoresPrimos :: Integer -> [Integer]
+factoresPrimos 1 = []
+factoresPrimos n = menorFactor : factoresPrimos (div n menorFactor)
+        where menorFactor = menorDivisor n
+
+descomponerEnPrimos :: [Integer] -> [[Integer]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = factoresPrimos x : descomponerEnPrimos xs
+
