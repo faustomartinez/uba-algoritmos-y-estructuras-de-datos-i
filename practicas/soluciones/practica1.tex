@@ -610,5 +610,24 @@
 			$\perp$ & V & - & $\perp$\\
 			$\perp$ & F & - & $\perp$\\
 			$\perp$ & $\perp$ & - & $\perp$\\
-		\end{tabular}	
+		\end{tabular}
+	\subsection{Ejercicio 19}
+		$b=c=True, a=False, x=y=\perp$
+		\begin{enumerate}[label=(\alph*)]
+		\item $(\neg x \oLuego b) \equiv (\neg \perp \oLuego True) \equiv \perp$
+		\item $((c \yLuego (y \yLuego a))\oLuego b) \equiv (True \oLuego(\perp \yLuego False)\oLuego True) \equiv (True \oLuego \perp \oLuego True) \equiv True$
+		\item $\neg (c \oLuego y) \equiv \neg (True \oLuego \perp) \equiv \neg True \equiv True$
+		\item $(\neg(True \oLuego \perp)\Iff(\neg True \yLuego \neg \perp)) \equiv (\neg True \Iff False) \equiv (False \Iff False) \equiv True$
+		\item $((True \oLuego \perp) \yLuego (False \oLuego True)) \equiv (True \yLuego True) \equiv True$
+		\item $(True \Iff True) \equiv True$
+		\item $(\neg True \yLuego \neg \perp) \equiv (False \yLuego \perp) \equiv False$
+		\end{enumerate}
+	\subsection{Ejercicio 20}
+		$p=True, q=False, r=\perp$
+		\begin{enumerate}[label=(\alph*)]
+		\item $(True \yLuego True) \equiv True$
+		\item $(False \implicaLuego (True \yLuego False)) \equiv (False \implicaLuego False) \equiv True$
+		\item $(True \implicaLuego (True \oLuego \perp)) \equiv (True \implicaLuego True)  \equiv True$
+		\item $(False \oLuego (\perp \yLuego (False \yLuego True))) \equiv (False \oLuego (\perp \yLuego False)) \equiv (False \oLuego \perp) \equiv \perp$
+		\end{enumerate}
 \end{document}
