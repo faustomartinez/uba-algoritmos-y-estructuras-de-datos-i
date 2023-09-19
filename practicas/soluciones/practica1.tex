@@ -629,5 +629,15 @@
 		\item $(False \implicaLuego (True \yLuego False)) \equiv (False \implicaLuego False) \equiv True$
 		\item $(True \implicaLuego (True \oLuego \perp)) \equiv (True \implicaLuego True)  \equiv True$
 		\item $(False \oLuego (\perp \yLuego (False \yLuego True))) \equiv (False \oLuego (\perp \yLuego False)) \equiv (False \oLuego \perp) \equiv \perp$
+		\item $((True \yLuego False)\yLuego \perp) \equiv (False \yLuego \perp) \equiv False$
+		\item $((True \oLuego False)\oLuego \perp) \equiv (True \oLuego \perp) \equiv True$
+		\item $((True\yLuego False)\yLuego((False \implicaLuego False)\oLuego(T\implicaLuego(False \yLuego \perp)))) \equiv (\perp \yLuego (True \oLuego False)) \equiv \perp$
+		\item $((True \yLuego \neg False)\implicaLuego False) \equiv (True \implicaLuego False) \equiv False$
+		\item $(True \yLuego(False \Iff False)) \equiv (True \yLuego True) \equiv True$
+		\item $(\neg (True \oLuego \perp)\implicaLuego \perp) \equiv (False \implicaLuego \perp) \equiv True$
+		\item $((True \implicaLuego \perp)\Iff(True \yLuego (True \yLuego \neg False))) \equiv (\perp \Iff False) \equiv \perp$
+		\item $((True \implicaLuego (False \implicaLuego \perp))\implicaLuego((True \implicaLuego False)\implicaLuego(True\implicaLuego \perp))) \equiv (True \implicaLuego (False \implicaLuego \perp)) \equiv (True \implicaLuego True) \equiv True$
 		\end{enumerate}
+	\subsection{Ejercicio 21}
+		TODO
 \end{document}
