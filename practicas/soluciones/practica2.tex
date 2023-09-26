@@ -105,13 +105,13 @@
 	\subsection{Ejercicio 6}
 	\subsubsection{Inciso A}
 	$\texttt{problema promedioDeAlumno}(notas:seq(String \times \mathbb{Z})) : \mathbb{R} \lbrace$\\
-	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{requiere}:\lbrace$ Todas las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
 	$\texttt{asegura}:\lbrace res =$ El resultado de sumar todas las segundas posiciones de las $2-uplas$ de $notas$, y dividirlas por la longitud de $notas$ $\rbrace$\\
 	$\rbrace$
 	
 	\subsubsection{Inciso B}
 	$\texttt{problema mejorMateria}(notas:seq(String \times \mathbb{Z})) : String \lbrace$\\
-	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{requiere}:\lbrace$ Todas las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
 	$\texttt{asegura}:\lbrace res=$ La primera coordenada ($String$) de la $2-upla$ con la mayor segunda coordenada ($\mathbb{Z}$) de todas las $2-uplas$ $\rbrace$\\
 	$\rbrace$\\
 	\begin{itemize}
@@ -120,7 +120,7 @@
 	
 	\subsubsection{Inciso C}
 	$\texttt{problema alumnosAprobados}(alumnos:seq(String \times seq(String \times \mathbb{Z})),materia:String) : seq(String) \lbrace$\\
-	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{requiere}:\lbrace$ Todas las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
 	$\texttt{requiere}:\lbrace$ Cada primer elemento de $alumnos$ (es decir su nombre y apellido) debe ser único en la secuencia$\rbrace$\\
 	$\texttt{asegura}:\lbrace res=$ Una lista con los $String$ correspondientes a los alumnos que tienen una nota mayor o igual a 4 en su secuencia asociada $notas$, en la posicion donde $materia$ es el primer elemento de la tupla perteneciente a $notas$ $\rbrace$\\
 	$\rbrace$\\
@@ -130,7 +130,7 @@
 	
 	\subsubsection{Inciso D}
 	$\texttt{problema promedioDeTodosLosAlumnos}(alumnos:seq(String \times seq(String \times \mathbb{Z})),materia:String) : seq(String \times \mathbb{R}) \lbrace$\\
-	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{requiere}:\lbrace$ Todas las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
 	$\texttt{requiere}:\lbrace$ Cada primer elemento de $alumnos$ (es decir su nombre y apellido) debe ser único en la secuencia$\rbrace$\\
 	$\texttt{asegura}:\lbrace res$ tiene la misma longitud que $alumnos\rbrace$\\
 	$\texttt{asegura}:\lbrace res$ es la salida de aplicar promedioDeAlumno() a cada segunda coordenada ($notas$) de la lista $alumnos\rbrace$\\
