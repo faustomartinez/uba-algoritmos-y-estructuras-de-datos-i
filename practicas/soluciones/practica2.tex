@@ -1,0 +1,138 @@
+\input{Algo1Macros}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{0} % nro de section
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\graphicspath{ {images/} }
+
+% End latex config
+
+\begin{document}
+	
+	\titulo{Práctica 2}
+	\fecha{2do cuatrimestre 2023 }
+	\materia{Algoritmos y Estructuras de Datos I / Introducción a la Programación}
+	\integrante{Fausto N. Martínez}{363/23}{fnmartinez@dc.uba.ar}
+	
+	%Carátula
+	\maketitle
+	\newpage
+	
+	%Indice
+	\tableofcontents
+	\newpage
+	
+	\section{Práctica 2}
+	
+	\subsection{Ejercicio 1}
+	\begin{enumerate}[label=(\alph*)]
+	\item $1 \rightarrow 2$ (pues $resultado$ es el doble de $x$)
+	\item $4 \rightarrow 2$ (pues $resultado$ es la raíz cuadrada de $x$)
+	\item $\pi \rightarrow 3, -5 \rightarrow 0$ (pues $resultado$ es el entero positivo más cercano a los $x$ dados)
+	\item $\langle 4,9 \rangle \rightarrow \langle 2,3 \rangle$ (pues no hay elementos repetidos en $s$, y son todos positivos, aparte $resultado$ tiene la misma cantidad de elementos que $s$, y estos son la raíz cuadrada de cada elemento de $s$, en el mismo orden que en $s$)
+	\item $\langle 4,9 \rangle \rightarrow \langle 3,2 \rangle$ (es el mismo problema que antes, pero ahora los $asegura$ no nos piden que los elementos de $resultado$ estén en el mismo orden que en $s$, asi que estos son valores de entrada y salida que cumplen la especificación)
+	\item $\langle 4,9 \rangle \rightarrow \langle 5,2 \rangle$ (es el mismo problema que antes, pero ahora los $asegura$ no nos pide que apliquemos raizCuadrada() a $\emph{todos}$ los elementos de $s$, asi que podemos aplicar raizCuadrada() solo a un elemento, por ejemplo, y que esto siga siendo un ejemplo de valores de entrada y salida que cumplen la especificación)
+	\item $\langle 3,-1 \rangle \rightarrow \langle \sqrt{3} \rangle$ (Esto es un ejemplo válido de valores de entrada y salida que cumplen la especificación, pues ahora la misma no me pide que los valores de entrada sean positivos, pero si nos pide que $resultado$ sea la salida de aplicar raizCuadrada() solo a los elementos positivos de $s$)
+	\item $\langle 4,9,16 \rangle \rightarrow \langle 2,3,4,0,0,0 \rangle$ (Esto cumple la especificación pues ahora el $asegura$ no nos pide que $resultado$ tenga la misma longitud que $s$ (esto tambien ocurría en el item anterior))
+	\item $\langle 4,9,16 \rangle \rightarrow \langle 2,3 \rangle$ (Ahora, como el $asegura$ nos pide que la longitud de $resultado$ sea como $\emph{máximo}$ la longitud de $s$, esto nos permite que un valor de salida con longitud menor que el de entrada sea un resultado que cumpla la especificación)
+	\end{enumerate}
+	
+	\subsection{Ejercicio 2}
+	\begin{enumerate}
+	\item No, pues no queremos darle a raizCuadrada() como valor de entrada un número negativo.
+	\item Como mencionamos antes, la diferencia entre $raicesCuadradasUno$(d) y $raicesCuadradasDos$(e) es que en $raicesCuadradasDos$ los valores de salida pueden estar en cualquier orden, cosa que no pasa en $raicesCuadradasUno$
+	\item Si, un algoritmo que cumpla $raicesCuadradasUno$, cumple tambien $raicesCuadradasDos$, pues esta admite cualquier orden de los valores de salida (inclusive el orden $"$correcto$"$), no ocurre lo mismo al revés, pues por ejemplo, si el algoritmo que resuelve $raicesCuadradasDos$ diera los valores de salida que pusimos como ejemplo en (e), este no cumpliría la especificación de $raicesCuadradasUno$
+	\item La diferencia entre $raicesCuadradasCinco$(h) y $raicesCuadradasSeis$(i) es que el $asegura$ extra de $raicesCuadradasSeis$ no nos permite que la longitud del valor de salida sea mayor que el de entrada, mientras $raicesCuadrasCinco$, al no aclararlo, lo permite.\\
+	Luego, $\langle \sqrt{3},\sqrt{9} \rangle$ es una salida válida para ambos problemas dado $s=\langle 3,9,11,15,18 \rangle$ pues cumple el asegura de que cada posición de $resultado$ es la salida de aplicarle raizCuadrada() a esa misma posición de $s$, y, para el caso de $raicesCuadradasSeis$, tambien cumple, que la longitud de $resultado$ es, como máximo la misma que $s$, es decir, que la misma es menor o igual que la de $s$.\\
+	Aparte $\langle \sqrt{3},\sqrt{9},\sqrt{11},\sqrt{13} \rangle$ es una salida válida de $raicesCuadradasCinco$ para $s=\langle 3,9,11 \rangle$ pues este problema no tiene ningún $asegura$ que nos restrinja la longitud de $resultado$
+	\item Como $raicesCuadradasCuatro$(g) tiene que seguir cumpliendo que se le aplique raizCuadrada() solo a los numeros positivos, ponerle un $asegura$ que diga que la longitud de $resultado$ sea la misma que $s$, simplemente haría que, si $s$ tiene algún numero no positivo, entonces, nos sería indistinto en resultado poner su raizCuadrada() o cualquier otra cosa, siempre cumpliendo que la longitud de $resultado$ sea lo mismo que $s$. Por ejemplo $\langle 2,-1,-2 \rangle \rightarrow \langle \sqrt{2},0,8000 \rangle$ serían valores de entrada y salida válidos
+	\item No, de hecho $raicesCuadradasDos$(e) es más restrictivo que $raicesCuadradasTres$(f), pues nos pide que la salida sea aplicarle raizCuadrada() a $\emph{todos}$ los elementos de $s$, mientras que $raicesCuadradasTres$ nos dice que la salida sea aplicársela $\emph{uno o varios}$ elementos de $s$. En particular, aplicársela a todos, sería una salida válida para $raicesCuadradasTres$, pero claramente no son el mismo problema, pues hay valores de entrada y salida que cumplen la especificación de $raicesCuadradasTres$, y no la de $raicesCuadradasDos$, por ejemplo los que dimos en (f)
+	\item Si, esos son valores de entrada y salida válidos, pues se puede ver que cumplen la especificación de $raicesCuadradasDos$, si le sacamos a ese problema el $requiere$ que nos pide que no haya elementos repetidos
+	\end{enumerate}
+	
+	\subsection{Ejercicio 3}
+	\begin{enumerate}[label=(\alph*)]
+	\item Si, es una salida válida pues cumple los $asegura$
+	\item No es válida, pues 3 no es estrictamente mayor que 3, entonces deberíamos agregar un $requiere$ que prohíba elementos repetidos en $s$.
+	\item Es válida, lo podríamos arreglar agregando un $asegura$ que pida que la cantidad de elementos de $resultado$ sea igual a la cantidad de elementos de $s$
+	\item Con el $asegura$ agregado anteriormente, ya solucionamos ese problema, asi que no debemos agregar otro $asegura$.
+	\item $\texttt{problema ordenar}$ ($s$:$seq(\mathbb{Z}$)) : $seq(\mathbb{Z})\lbrace$ \\
+		$\texttt{requiere}$:$\lbrace$No hay elementos repetidos en $s$$\rbrace$\\
+		$\texttt{asegura}$:$\lbrace$La longitud de $resultado$ es igual a la de $s$$\rbrace$\\
+		$\texttt{asegura}$:$\lbrace$$resultado$ contiene los mismos elementos que $s$$\rbrace$\\
+		$\texttt{asegura}$:$\lbrace$$resultado$ es una secuencia en la cual cada elemento es estrictamente mayor al anterior$\rbrace$\\
+	$\rbrace$
+	\end{enumerate}
+	
+	\subsection{Ejercicio 4}
+	\begin{enumerate}[label=(\alph*)]
+	\item Por empezar, en ningun lugar aclara que se debe duplicar los valores de entrada, luego $\langle 2,2 \rangle \rightarrow \langle 3,4 \rangle$ son resultados de entrada y salida que cumplen la especificación por ejemplo, y para nada son los que queremos que la cumplan.
+	\item 
+	\begin{itemize}
+		\item El primer asegura, nos dice que hay $\emph{algún}$ valor de $resultado$ que es la salida de duplicar ($x$) para cada $x\in s$. No nos sirve pues queremos que sean todos.
+		\item El segundo asegura, ni siquiera aclara que el resultado sea el doble que cada elemento de $s$, solo nos pide que sea mayor, no nos sirve
+		\item El tercer asegura, sin embargo, es claramente lo que queremos para nuestra función, que el valor de cada posición de $resultado$ sea la salida de aplicarle duplicar() a esa misma posición de $s$.
+		\item El cuarto asegura, nos pide que todos los numeros de $resultado$ sean pares, lo cual es cierto que necesitamos, pero ya está implícito con el tercer asegura, y poner este sería sobreespecificar (especificar de más), cosa que no queremos hacer
+	\end{itemize}
+	\end{enumerate}
+	
+	\subsection{Ejercicio 5}
+	\subsubsection{Inciso A}
+	$\texttt{problema cantidadColectivosLinea}$ (linea:$\mathbb{Z}$,bondis:$seq(\mathbb{Z}$)) : $\mathbb{Z}\lbrace$ \\
+	$\texttt{requiere}$:$\lbrace$Todos los elementos de la lista $bondis$ pertenecen a (28, 33, 34, 37, 45, 107, 160, 166)$\rbrace$\\
+	$\texttt{requiere}$:$\lbrace$$linea$ es alguno de estos numeros: 28, 33, 34, 37, 45, 107, 160, 166$\rbrace$\\
+	$\texttt{asegura}$:$\lbrace$$resultado$ es la cantidad de veces que aparece $linea$ en $bondis$$\rbrace$\\
+	$\rbrace$
+	\subsubsection{Inciso B}
+	$\texttt{problema compararLineas}(l1:\mathbb{Z},l2:\mathbb{Z},bondis:seq(\mathbb{Z})) : \mathbb{Z} \lbrace$\\
+	$\texttt{requiere}:\lbrace$ Todos los elementos de la lista $bondis$ pertenecen a (28, 33, 34, 37, 45, 107, 160, 166)$\rbrace$\\
+	$\texttt{requiere}:\lbrace l1$ es alguno de los siguientes numeros: 28, 33, 34, 37, 45, 107, 160, 166$\rbrace$\\
+	$\texttt{requiere}:\lbrace l2$ es alguno de los siguientes numeros: 28, 33, 34, 37, 45, 107, 160, 166$\rbrace$\\
+	$\texttt{asegura}:\lbrace resultado=l1 \Iff cantidadColectivosLinea(l1)\geq cantidadColectivosLinea(l2)\rbrace$\\
+	$\texttt{asegura}:\lbrace resultado=l2 \Iff cantidadColectivosLinea(l1)< cantidadColectivosLinea(l2)\rbrace$\\
+	$\rbrace$
+	
+	\subsection{Ejercicio 6}
+	\subsubsection{Inciso A}
+	$\texttt{problema promedioDeAlumno}(notas:seq(String \times \mathbb{Z})) : \mathbb{R} \lbrace$\\
+	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{asegura}:\lbrace res =$ El resultado de sumar todas las segundas posiciones de las $2-uplas$ de $notas$, y dividirlas por la longitud de $notas$ $\rbrace$\\
+	$\rbrace$
+	
+	\subsubsection{Inciso B}
+	$\texttt{problema mejorMateria}(notas:seq(String \times \mathbb{Z})) : String \lbrace$\\
+	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{asegura}:\lbrace res=$ La primera coordenada ($String$) de la $2-upla$ con la mayor segunda coordenada ($\mathbb{Z}$) de todas las $2-uplas$ $\rbrace$\\
+	$\rbrace$\\
+	\begin{itemize}
+	\item Luego, si queremos devolver una lista de materias, tendríamos que hacer unas pares de modificaciones, la mas importante de ellas, cambiar el tipo de datos de salida de $String$ a $seq(String)$
+	\end{itemize}
+	
+	\subsubsection{Inciso C}
+	$\texttt{problema alumnosAprobados}(alumnos:seq(String \times seq(String \times \mathbb{Z})),materia:String) : seq(String) \lbrace$\\
+	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{requiere}:\lbrace$ Cada primer elemento de $alumnos$ (es decir su nombre y apellido) debe ser único en la secuencia$\rbrace$\\
+	$\texttt{asegura}:\lbrace res=$ Una lista con los $String$ correspondientes a los alumnos que tienen una nota mayor o igual a 4 en su secuencia asociada $notas$, en la posicion donde $materia$ es el primer elemento de la tupla perteneciente a $notas$ $\rbrace$\\
+	$\rbrace$\\
+	\begin{itemize}
+	\item Para resolver el problema del orden alfabético simplemente habría que agregar otro $asegura$ que pida que los elementos de la lista $res$ estan ordenados en forma alfábetica. Eso reduciría la cantidad de algoritmos que resuelven el problema pues sería un problema mas $\emph{restrictivo}$
+	\end{itemize}
+	
+	\subsubsection{Inciso D}
+	$\texttt{problema promedioDeTodosLosAlumnos}(alumnos:seq(String \times seq(String \times \mathbb{Z})),materia:String) : seq(String \times \mathbb{R}) \lbrace$\\
+	$\texttt{requiere}:\lbrace$ Todos las $2-uplas$ de $notas$ tienen en su segunda posición un entero entre 1 y 10$\rbrace$\\
+	$\texttt{requiere}:\lbrace$ Cada primer elemento de $alumnos$ (es decir su nombre y apellido) debe ser único en la secuencia$\rbrace$\\
+	$\texttt{asegura}:\lbrace res$ tiene la misma longitud que $alumnos\rbrace$\\
+	$\texttt{asegura}:\lbrace res$ es la salida de aplicar promedioDeAlumno() a cada segunda coordenada ($notas$) de la lista $alumnos\rbrace$\\
+	$\rbrace$
+\end{document}
