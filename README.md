@@ -13,3 +13,8 @@ Universidad de Buenos Aires
 | 4   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica4.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica4.hs)
 | 5   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica5.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica5.hs)
 | 6   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica6.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica6.py)
+| 6   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica7.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica7.py)
+
+## Parciales
+| Simulacro 1º Parcial -Haskell-   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/simulacro-1er-parcial/enunciado.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/simulacro-1er-parcial/Simulacro.hs)
+| 1º Parcial -Haskell-   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica1.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica1.pdf)
