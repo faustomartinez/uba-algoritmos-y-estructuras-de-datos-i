@@ -249,7 +249,31 @@ def juego7ymedio() -> [int]:
 
 #5.1
 def perteneceACadaUno (e:int,s:[[int]],res:[bool])->None:
-    for i in range (0,len(res)):
-        res.append(pertenece(e,res[i]))
-    for elem in res:
-        print(str(elem))
+    res=[]
+    for i in range (0,len(s)):
+        res.append(pertenece(e,s[i]))
+
+#5.2
+def esMatriz(input:[[int]])->bool:
+    for i in range (0,len(input)):
+        if (len(input)!=len(input[i])):
+            return False
+    return True
+
+#5.3
+def filasOrdenadas(m:[[int]],res:[bool])->None:
+    res=[]
+    for i in range (0,len(m)):
+        if (not ordenados(m[i])):
+            res.append(False)
+        else:
+            res.append(True)
+    print(res)
+
+#5.4
+import numpy as np
+def elevarMatriz(dim:int,pot:int)->[[int]]:
+    matriz=np.random.randint(0,10,(dim,dim))
+    return np.linalg.matrix_power(matriz,pot)
+
+

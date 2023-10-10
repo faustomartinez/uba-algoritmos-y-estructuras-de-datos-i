@@ -164,13 +164,14 @@ problema sumatoriaDoble(n,m:Z):Z{
     asegura {res=sum desde i=1 hasta n sum desde j=1 hasta m de i^j}
 }
 -}
-sumatoriaInterna::Integer->Integer->Integer
-sumatoriaInterna _ 0 = 0
-sumatoriaInterna n j  = n^j+sumatoriaInterna n (j-1)
 
 sumatoriaDoble :: Integer->Integer->Integer
 sumatoriaDoble 0 _ = 0
-sumatoriaDoble n m = sumatoriaDoble (n-1) m + sumatoriaInterna n m
+sumatoriaDoble n m = sumatoriaSimple n m + sumatoriaDoble (n-1) m 
+
+sumatoriaSimple::Integer->Integer->Integer
+sumatoriaSimple _ 0 = 0
+sumatoriaSimple I j  = I^j + sumatoriaSimple I (j-1)
 
 -------------EJERCICIO 14--------------
 primerSumaPotencias::Integer->Integer->Integer
