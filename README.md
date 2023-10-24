@@ -14,6 +14,7 @@ Universidad de Buenos Aires
 | 5   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica5.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica5.hs)
 | 6   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica6.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica6.py)
 | 7   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica7.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/practica7.py)
+| 8   | [Enunciado](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/enunciados/practica8.pdf) | [Solución](https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/practicas/soluciones/Practica%208/practica8.py)
 
 ## Parciales
 | Titulo | Enunciado                                                                                          | Solución                                                                                                      |
