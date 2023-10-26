@@ -14,6 +14,7 @@ def existe_palabra(palabra:str,nombre_archivo:str)->bool:
     for linea in archivo.readlines():
         if palabra in linea:
             result=True
+    archivo.close()
     return result
 
 def cantidad_apariciones(nombre_archivo:str,palabra:str)->int:
@@ -24,6 +25,7 @@ def cantidad_apariciones(nombre_archivo:str,palabra:str)->int:
     for palabraDelArchivo in palabrasDelArchivo:
         if palabra==palabraDelArchivo:
             sumador+=1
+    archivo.close()
     return sumador
 
 #*Ejercicio 2
@@ -62,6 +64,7 @@ def agregar_frase_principio(nombre_archivo:str,frase:str):
     contenido = archivo.read()
     archivo.seek(0,0)
     archivo.write(frase.rstrip('\r\n') + '\n' + contenido)
+    archivo.close()
 
 #*Ejercicio 6 (No termine de entenderlo)
 def binario_to_legible(nombre_archivo:str):
@@ -72,6 +75,7 @@ def binario_to_legible(nombre_archivo:str):
         caracter:str=chr(linea)
         if (caracter>'A' and caracter<'Z') or (caracter>'a' and caracter<'z') or (caracter==' ') or (caracter=='_') :
             res.append(chr(linea))
+    archivo.close()
     print(res)
 
 #*Ejercicio 7
@@ -80,11 +84,14 @@ def promedioEstudiante(lu:str)->float:
     lineas=archivo.readlines()
     contador:int=0
     notaAcumulada:int=0
+
     for linea in lineas:
         datos=linea.split(",")
         if datos[0]==lu:
             contador+=1
             notaAcumulada+=int(datos[3])
+
+    archivo.close()
     promedio:float = notaAcumulada/contador
     return promedio
 
@@ -323,3 +330,67 @@ cola.put(('Roberto',12452413,True,False))
 cola_ordenada=_a_clientes(cola)
 while not cola_ordenada.empty():
     print(cola_ordenada.get())"""
+
+##* Diccionarios
+#*Ejercicio 19
+def agrupar_por_longitud(nombre_archivo:str)->dict:
+    archivo=open(nombre_archivo,'r',encoding='utf8')
+    res:dict[int]={}
+    lineas=archivo.readlines()
+    for linea in lineas:
+        palabras=linea.split()
+        for palabra in palabras:
+            longitud=len(palabra)
+            if longitud in res:
+                res[longitud]+=1
+            else:
+                res[longitud]=1
+    archivo.close()
+    return res
+
+#*Ejercicio 20
+def promedio_alumnos()->dict:
+    archivo=open('notas.csv','r')
+    lineas=archivo.readlines()
+    promedios:dict={}
+
+    for linea in lineas:
+        data=linea.rstrip('\n').split(',')
+        lu:str=data[0]
+        #Si el alumno no esta en el diccionario de promedios, calculo su promedio y lo añado
+        if lu not in promedios:
+            promedios[lu]=promedioEstudiante(lu)
+
+    archivo.close()
+    return promedios
+
+#*Ejercicio 21
+def frecuencias(nombre_archivo:str)->dict:
+    archivo = open(nombre_archivo, "r",encoding='utf8')
+    lineas=archivo.readlines()
+    frec: dict = {}
+
+    for linea in lineas:
+        palabras=linea.split()
+        for palabra in palabras:
+            if palabra not in frec:
+                frec[palabra]=1
+            else:
+                frec[palabra]+=1
+    
+    archivo.close()
+    return frec
+
+def la_palabra_mas_frecuente(nombre_archivo:str)->str:
+    frec=frecuencias(nombre_archivo)
+    palabra_mas_frecuente:str
+    frecuencia_max:int=0
+
+    for palabra,frecuencia in frec.items():
+        if frecuencia>frecuencia_max:
+            frecuencia_max=frecuencia
+            palabra_mas_frecuente=palabra
+
+    return palabra_mas_frecuente
+
+#*Ejercicio 22
